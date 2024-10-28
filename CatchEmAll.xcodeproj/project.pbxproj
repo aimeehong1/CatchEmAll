@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		901824182CCFE662002F699A /* Cries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901824172CCFE662002F699A /* Cries.swift */; };
+		9018241E2CD01D7B002F699A /* AbilityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9018241D2CD01D7B002F699A /* AbilityView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		901824172CCFE662002F699A /* Cries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Cries.swift; path = CatchEmAll/Structs/Cries.swift; sourceTree = "<group>"; };
+		9018241D2CD01D7B002F699A /* AbilityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AbilityView.swift; path = CatchEmAll/Views/AbilityView.swift; sourceTree = "<group>"; };
 		902B53DD2CC422BD000AA749 /* CatchEmAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchEmAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +39,8 @@
 		902B53D42CC422BD000AA749 = {
 			isa = PBXGroup;
 			children = (
+				9018241D2CD01D7B002F699A /* AbilityView.swift */,
+				901824172CCFE662002F699A /* Cries.swift */,
 				902B53DF2CC422BD000AA749 /* CatchEmAll */,
 				902B53DE2CC422BD000AA749 /* Products */,
 			);
@@ -119,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901824182CCFE662002F699A /* Cries.swift in Sources */,
+				9018241E2CD01D7B002F699A /* AbilityView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

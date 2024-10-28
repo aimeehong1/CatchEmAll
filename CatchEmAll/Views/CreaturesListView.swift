@@ -10,6 +10,7 @@ import SwiftUI
 struct CreaturesListView: View {
     @State var creatures = Creatures()
     @State private var searchText = ""
+    static var defaultFontFamily: String { return "Avenir Next Condensed" }
     
     var body: some View {
         NavigationStack {
@@ -56,12 +57,12 @@ struct CreaturesListView: View {
                     .resizable()
                     .scaledToFit()
                     .opacity(0.05)
+                
                 Image("pokemon-logo")
                     .resizable()
                     .scaledToFit()
                     .opacity(0.05)
             }
-            
         }
         .task {
             await creatures.getData()
@@ -73,6 +74,7 @@ struct CreaturesListView: View {
             return creatures.creaturesArray
         } else { // we have some searchText
             return creatures.creaturesArray.filter {$0.name.capitalized.contains(searchText)}
+//            | creatures.creaturesArray.filter { $0.}
         }
     }
     

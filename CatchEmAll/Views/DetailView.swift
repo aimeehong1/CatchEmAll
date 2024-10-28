@@ -11,11 +11,12 @@ import AVFAudio
 struct DetailView: View {
     @State private var audioPlayer: AVAudioPlayer!
     let creature: Creature
+//    @State private var soundName = creatureDetail.cries.legacy
     @State private var creatureDetail = CreatureDetail()
     static var defaultFontFamily: String { return "Avenir Next Condensed" }
     
     var body: some View {
-        VStack (alignment: .center, spacing: 24) {
+        VStack (alignment: .center, spacing: 20) {
             creatureImage
             
             Text(creature.name.capitalized)
@@ -56,6 +57,7 @@ struct DetailView: View {
                 ForEach(creatureDetail.types) { type in
                     let creatureType = type.type.name.capitalized
                     Text("\(creatureType)")
+                        .padding(15)
                         .font(.title3)
                         .background(Color("\(creatureType)"))
                         .foregroundStyle(.white)
@@ -63,11 +65,15 @@ struct DetailView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
             }
-            
+        
             List {
                 Section(header: Text("Abilities")) {
                     ForEach(creatureDetail.abilities) { ability in
-                        Text("\(ability.ability.name.capitalized)")
+                        NavigationLink {
+                            AbilityView(ability: ability.ability)
+                        } label: {
+                            Text("\(ability.ability.name.capitalized)")
+                        }
                     }
                 }
                 Section(header: Text("Stats")) {
@@ -86,6 +92,11 @@ struct DetailView: View {
                             }
                         }
                     }
+                    HStack {
+                        Text("Base Experience")
+                        Spacer()
+                        Text("\(creatureDetail.base_experience)")
+                    }
                 }
             }
             .listStyle(.automatic)
@@ -95,6 +106,8 @@ struct DetailView: View {
             await creatureDetail.getData()
         }
     }
+    
+//    guard let soundName = URL
 }
 
 extension DetailView {

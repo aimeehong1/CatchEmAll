@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct Ability: Codable, Identifiable {
+struct AbilitySet: Codable, Identifiable {
     let id = UUID().uuidString
-    var ability: Name
+    var ability: AbilityDetail
     
-    struct Name: Codable {
+    struct AbilityDetail: Codable {
         var name: String
+        var url: String
     }
     
     enum CodingKeys: CodingKey { // ignore the ID property when decoding
