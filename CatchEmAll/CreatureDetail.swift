@@ -8,11 +8,14 @@
 import Foundation
 
 @Observable // will watch objects for changes so that SwiftUI will redraw the interface when needed
-class CreatureDetail {
+class CreatureDetail: Identifiable {
     private struct Returned: Codable {
         var height: Double
         var weight: Double
         var sprites: Sprite
+        var types: [Types]
+        var abilities: [Ability]
+        var stats: [Stat]
     }
     
     struct Sprite: Codable {
@@ -35,6 +38,9 @@ class CreatureDetail {
     var height = 0.0
     var weight = 0.0
     var imageURL = ""
+    var abilities: [Ability] = []
+    var types: [Types] = []
+    var stats: [Stat] = []
     
     func getData() async {
         print("🕸️ We are accessing the url \(urlString)")
@@ -54,6 +60,9 @@ class CreatureDetail {
             self.height = returned.height
             self.weight = returned.weight
             self.imageURL = returned.sprites.other.officialArtwork.front_default ?? "n/a"
+            self.abilities = self.abilities + returned.abilities
+            self.types = self.types + returned.types
+            self.stats = self.stats + returned.stats
         } catch {
             print("😡 ERROR: could not get data from \(urlString)")
         }

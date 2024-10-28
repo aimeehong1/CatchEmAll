@@ -22,6 +22,7 @@ struct CreaturesListView: View {
                             Text("\(returnIndex(of: creature)). ")
                             Text(creature.name.capitalized)
                                 .font(.title2)
+                                .fontWeight(.medium)
                         }
                     }
                     .task {
@@ -40,6 +41,7 @@ struct CreaturesListView: View {
                                 await creatures.loadAll()
                             }
                         }
+                        .foregroundStyle(.pokemon)
                     }
                 }
                 .searchable(text: $searchText)
@@ -49,6 +51,15 @@ struct CreaturesListView: View {
                         .tint(.red)
                         .scaleEffect(4)
                 }
+                
+                Image("pokeball")
+                    .resizable()
+                    .scaledToFit()
+                    .opacity(0.05)
+                Image("pokemon-logo")
+                    .resizable()
+                    .scaledToFit()
+                    .opacity(0.05)
             }
             
         }
