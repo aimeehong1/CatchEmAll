@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Stat: Codable, Identifiable {
+struct StatSet: Codable, Identifiable {
     let id = UUID().uuidString
     var baseStat: Int
-    var stat: Name
+    var stat: Stat
     
-    struct Name: Codable {
+    struct Stat: Codable {
         var name: String
     }
     

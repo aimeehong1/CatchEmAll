@@ -16,7 +16,7 @@ class CreatureDetail: Identifiable {
         var types: [Types]
         var abilities: [AbilitySet]
         var base_experience: Int
-        var stats: [Stat]
+        var stats: [StatSet]
         var cries: Legacy
     }
     
@@ -47,7 +47,7 @@ class CreatureDetail: Identifiable {
     var abilities: [AbilitySet] = []
     var types: [Types] = []
     var base_experience = 0
-    var stats: [Stat] = []
+    var stats: [StatSet] = []
     var cryURL = ""
     
     func getData() async {
@@ -69,10 +69,10 @@ class CreatureDetail: Identifiable {
                 self.height = returned.height
                 self.weight = returned.weight
                 self.imageURL = returned.sprites.other.officialArtwork.front_default ?? "n/a"
-                self.abilities = self.abilities + returned.abilities
-                self.types = self.types + returned.types
+                self.abilities =  returned.abilities
+                self.types = returned.types
                 self.base_experience = returned.base_experience
-                self.stats = self.stats + returned.stats
+                self.stats = returned.stats
                 self.cryURL = returned.cries.legacy ?? ""
             }
             

@@ -9,9 +9,9 @@ import Foundation
 
 struct Types: Codable, Identifiable {
     let id = UUID().uuidString
-    var type: Name
+    var type: PokeType
     
-    struct Name: Codable {
+    struct PokeType: Codable {
         var name: String
     }
     

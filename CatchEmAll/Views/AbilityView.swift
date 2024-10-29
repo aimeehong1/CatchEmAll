@@ -8,10 +8,20 @@
 import SwiftUI
 
 struct AbilityView: View {
-    let ability: AbilitySet.AbilityDetail
+    @State var ability: AbilitySet.AbilityDetail
+    static var defaultFontFamily: String { return "Avenir Next Condensed" }
     
     var body: some View {
-        Text("Hello")
+        ZStack {
+            Image("pika")
+                .resizable()
+                .scaledToFit()
+                .scaleEffect(2)
+                .opacity(0.25)
+            
+            Text("[Effect Description]")
+                .font(.title)
+        }
     }
 }
 
