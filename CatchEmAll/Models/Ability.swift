@@ -9,9 +9,9 @@ import Foundation
 
 struct AbilitySet: Codable, Identifiable {
     let id = UUID().uuidString
-    var ability: AbilityDetail
+    var ability: Ability
     
-    struct AbilityDetail: Codable {
+    struct Ability: Codable {
         var name: String
         var url: String
     }

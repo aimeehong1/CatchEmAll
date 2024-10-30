@@ -68,27 +68,27 @@ struct DetailView: View {
         
             List {
                 Section(header: Text("Abilities")) {
-                    ForEach(creatureDetail.abilities) { ability in
+                    ForEach(creatureDetail.abilities) { pokeAbilities in
                         NavigationLink {
                             AbilityView(ability: ability.ability)
                         } label: {
-                            Text("\(ability.ability.name.capitalized)")
+                            Text("\(pokeAbilities.ability.name.capitalized)")
                         }
                     }
                 }
                 Section(header: Text("Stats")) {
-                    ForEach(creatureDetail.stats) { stat in
-                        if stat.stat.name == "hp" {
+                    ForEach(creatureDetail.stats) { pokeStats in
+                        if pokeStats.stat.name == "hp" {
                             HStack {
-                                Text(stat.stat.name.uppercased())
+                                Text(pokeStats.stat.name.uppercased())
                                 Spacer()
-                                Text("\(stat.baseStat)")
+                                Text("\(pokeStats.baseStat)")
                             }
                         } else {
                             HStack {
-                                Text(stat.stat.name.capitalized)
+                                Text(pokeStats.stat.name.capitalized)
                                 Spacer()
-                                Text("\(stat.baseStat)")
+                                Text("\(pokeStats.baseStat)")
                             }
                         }
                     }
@@ -106,8 +106,6 @@ struct DetailView: View {
             await creatureDetail.getData()
         }
     }
-    
-//    guard let soundName = URL
 }
 
 extension DetailView {
@@ -132,22 +130,6 @@ extension DetailView {
                     .scaleEffect(10)
                     .frame(height: 220)
             }
-        }
-    }
-    
-    func playSound(soundName: String) {
-        if audioPlayer != nil {
-            audioPlayer.stop()
-        }
-        guard let soundFile = NSDataAsset(name: soundName) else {
-            print("😡 Could not read file named \(soundName)")
-            return
-        }
-        do {
-            audioPlayer = try AVAudioPlayer(data: soundFile.data)
-            audioPlayer.play()
-        } catch {
-            print("😡 ERROR: \(error.localizedDescription) creating audioplayer.")
         }
     }
 }
