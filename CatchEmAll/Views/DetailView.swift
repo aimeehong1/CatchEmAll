@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import AVFAudio
 
 struct DetailView: View {
-    @State private var audioPlayer: AVAudioPlayer!
     let creature: Creature
     @State private var creatureDetail = CreatureDetail()
     static var defaultFontFamily: String { return "Avenir Next Condensed" }
@@ -58,6 +56,7 @@ struct DetailView: View {
                     Text("\(creatureType)")
                         .padding(15)
                         .font(.title3)
+                        .fontWeight(.semibold)
                         .background(Color("\(creatureType)"))
                         .foregroundStyle(.white)
                         .frame(maxHeight: 20)
@@ -69,7 +68,7 @@ struct DetailView: View {
                 Section(header: Text("Abilities")) {
                     ForEach(creatureDetail.abilities) { pokeAbilities in
                         NavigationLink {
-                            AbilityView()
+                            AbilityView(pokeAbilitySet: pokeAbilities.ability)
                         } label: {
                             Text("\(pokeAbilities.ability.name.capitalized)")
                         }
@@ -115,14 +114,14 @@ extension DetailView {
                     .resizable()
                     .scaledToFit()
                     .background(.white)
-                    .frame(width: 240, height: 240)
+                    .frame(width: 220, height: 220)
                 
             } else if phase.error != nil { // We've had an error
                 Image(systemName: "questionmark.square.dashed")
                     .resizable()
                     .scaledToFit()
                     .background(.white)
-                    .frame(width: 240, height: 240)
+                    .frame(width: 220, height: 220)
             } else { // use a placeholder - image loading
                 ProgressView()
                     .tint(.red)
