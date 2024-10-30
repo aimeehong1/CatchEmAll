@@ -18,7 +18,7 @@ struct AbilityView: View {
                 .bold()
                 .minimumScaleFactor(0.5)
                 .lineLimit(1)
-                
+            
             Spacer()
             
             ZStack {
@@ -32,7 +32,7 @@ struct AbilityView: View {
                     if effect.language.name == "en" {
                         Text(effect.effect)
                             .font(.title)
-                            .bold()
+                            .fontWeight(.medium)
                             .multilineTextAlignment(.center)
                             .minimumScaleFactor(0.5)
                     }

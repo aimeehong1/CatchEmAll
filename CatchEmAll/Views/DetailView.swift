@@ -71,6 +71,7 @@ struct DetailView: View {
                             AbilityView(pokeAbilitySet: pokeAbilities.ability)
                         } label: {
                             Text("\(pokeAbilities.ability.name.capitalized)")
+                                .fontWeight(.medium)
                         }
                     }
                 }
@@ -79,12 +80,14 @@ struct DetailView: View {
                         if pokeStats.stat.name == "hp" {
                             HStack {
                                 Text(pokeStats.stat.name.uppercased())
+                                    .fontWeight(.medium)
                                 Spacer()
                                 Text("\(pokeStats.baseStat)")
                             }
                         } else {
                             HStack {
                                 Text(pokeStats.stat.name.capitalized)
+                                    .fontWeight(.medium)
                                 Spacer()
                                 Text("\(pokeStats.baseStat)")
                             }
@@ -92,6 +95,7 @@ struct DetailView: View {
                     }
                     HStack {
                         Text("Base Experience")
+                            .fontWeight(.medium)
                         Spacer()
                         Text("\(creatureDetail.base_experience)")
                     }
