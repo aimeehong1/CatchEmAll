@@ -17,7 +17,6 @@ class CreatureDetail: Identifiable {
         var abilities: [AbilitySet]
         var base_experience: Int
         var stats: [StatSet]
-        var cries: Legacy
     }
     
     struct Sprite: Codable {
@@ -36,10 +35,6 @@ class CreatureDetail: Identifiable {
         var front_default: String? // this might return null, which is nil in Swift
     }
     
-    struct Legacy: Codable {
-        var legacy: String?
-    }
-    
     var urlString = ""
     var height = 0.0
     var weight = 0.0
@@ -48,7 +43,6 @@ class CreatureDetail: Identifiable {
     var types: [Types] = []
     var base_experience = 0
     var stats: [StatSet] = []
-    var cryURL = ""
     
     func getData() async {
         print("🕸️ We are accessing the url \(urlString)")
@@ -73,7 +67,6 @@ class CreatureDetail: Identifiable {
                 self.types = returned.types
                 self.base_experience = returned.base_experience
                 self.stats = returned.stats
-                self.cryURL = returned.cries.legacy ?? ""
             }
             
         } catch {

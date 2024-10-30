@@ -11,7 +11,6 @@ import AVFAudio
 struct DetailView: View {
     @State private var audioPlayer: AVAudioPlayer!
     let creature: Creature
-//    @State private var soundName = creatureDetail.cries.legacy
     @State private var creatureDetail = CreatureDetail()
     static var defaultFontFamily: String { return "Avenir Next Condensed" }
     
@@ -70,7 +69,7 @@ struct DetailView: View {
                 Section(header: Text("Abilities")) {
                     ForEach(creatureDetail.abilities) { pokeAbilities in
                         NavigationLink {
-                            AbilityView(ability: ability.ability)
+                            AbilityView()
                         } label: {
                             Text("\(pokeAbilities.ability.name.capitalized)")
                         }

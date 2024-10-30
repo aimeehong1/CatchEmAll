@@ -17,7 +17,7 @@ struct AbilityView: View {
                 .resizable()
                 .scaledToFit()
                 .scaleEffect(2)
-                .opacity(0.25)
+                .opacity(0.20)
             
             Text("[Effect Description]")
                 .font(.title)
@@ -26,5 +26,5 @@ struct AbilityView: View {
 }
 
 #Preview {
-    AbilityView(ability: AbilitySet.AbilityDetail(name: "overgrow", url: "https://pokeapi.co/api/v2/ability/65/"))
+    AbilityView()
 }

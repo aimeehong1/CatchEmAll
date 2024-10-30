@@ -74,7 +74,6 @@ struct CreaturesListView: View {
             return creatures.creaturesArray
         } else { // we have some searchText
             return creatures.creaturesArray.filter {$0.name.capitalized.contains(searchText)}
-//            | creatures.creaturesArray.filter { $0.}
         }
     }
     
